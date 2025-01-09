@@ -1,29 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   chars_to_ints.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fbicane <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/08 20:19:51 by fbicane           #+#    #+#             */
-/*   Updated: 2025/01/09 16:11:50 by fbicane          ###   ########.fr       */
+/*   Created: 2025/01/09 15:42:17 by fbicane           #+#    #+#             */
+/*   Updated: 2025/01/09 16:11:38 by fbicane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "push_swap.h"
 
-# include <stdlib.h>
+t_stack	*
 
-typedef struct s_stack_node
+t_stack	*ft_add_node(t_stack *head)
 {
-	s_stack_node	*prev_node;
-	int		value;
-	s_stack_node	*next_node;
-}	t_stack;
+	
+}
 
+t_stack	*convert_to_stack(char **av)
+{
 
-char	**ft_split(char const *s, char c);
-int		ft_atoi(const char *str);
-
-#endif
+}
