@@ -1,25 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   chars_to_ints.c                                    :+:      :+:    :+:   */
+/*   ft_creat_node.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fbicane <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/09 15:42:17 by fbicane           #+#    #+#             */
-/*   Updated: 2025/01/09 16:11:38 by fbicane          ###   ########.fr       */
+/*   Created: 2025/01/09 21:08:51 by fbicane           #+#    #+#             */
+/*   Updated: 2025/01/09 21:08:57 by fbicane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_stack	*
-
-t_stack	*ft_add_node(t_stack *head)
+t_stack	*ft_creat_node(int nbr, int ind)
 {
-	
-}
+	t_stack	*new_node;
 
-t_stack	*convert_to_stack(char **av)
-{
-
+	new_node = malloc(sizeof(t_stack));
+	if (!new_node)
+		return (NULL);
+	new_node->prev_node = NULL;
+	new_node->data = nbr;
+	new_node->index = ind;
+	new_node->next_node = NULL;
+	return (new_node);
 }

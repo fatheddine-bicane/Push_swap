@@ -1,31 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_splited_argv.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fbicane <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/08 20:19:51 by fbicane           #+#    #+#             */
-/*   Updated: 2025/01/09 21:48:20 by fbicane          ###   ########.fr       */
+/*   Created: 2025/01/09 21:12:28 by fbicane           #+#    #+#             */
+/*   Updated: 2025/01/09 21:51:50 by fbicane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "push_swap.h"
 
-# include <stdlib.h>
-
-typedef struct s_stack
+t_stack	**ft_argv_to_int_list(char **argv)
 {
-	struct s_stack	*prev_node;
-	int				data;
-	int				index;
-	struct s_stack	*next_node;
-}	t_stack;
+	t_stack	*head;
+	t_stack	*tmp_block;
+	int		i;
+	int		ind;
 
-char	**ft_split(char const *s, char c);
-int		ft_atoi(const char *str);
-t_stack	*ft_creat_block(int nbr, int ind);
-void	ft_add_block(t_stack **stack, t_stack *node);
-
-#endif
+	head = NULL;
+	i = 1;
+	ind = 0;
+	while (argv[i])
+	{
+		tmp_block = ft_creat_block(ft_atoi(argv[i]), ind);
+		ind++;
+		ft_add_block(&head, tmp_block);
+		i++;
+	}
+	return (&head);
+}

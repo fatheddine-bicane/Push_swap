@@ -1,29 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_add_node.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fbicane <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/09 13:36:31 by fbicane           #+#    #+#             */
-/*   Updated: 2025/01/09 13:44:27 by fbicane          ###   ########.fr       */
+/*   Created: 2025/01/09 21:07:57 by fbicane           #+#    #+#             */
+/*   Updated: 2025/01/09 21:08:15 by fbicane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
 
-int	main()
+void	ft_add_node(t_stack **stack, t_stack *node)
 {
-	char	*str = "  first  second  third  fourth  ";
-	char	**arr = ft_split(str, 32);
-	int		i = 0;
+	t_stack	*tmp_head;
 
-	while (arr[i])
+	if (!stack || !node)
+		return ;
+	if (!*stack)
 	{
-		printf("%s\n", arr[i]);
-		free(arr[i]);
-		i++;
+		*stack = node;
+		return ;
 	}
-	free(arr);
+	tmp_head = *stack;
+	while (tmp_head->next_node)
+		tmp_head = tmp_head->next_node;
+	tmp_head->next_node = node;
+	node->prev_node = tmp_head;
 }
