@@ -1,33 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_splited_argv.c                                  :+:      :+:    :+:   */
+/*   ft_push.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fbicane <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/09 21:12:28 by fbicane           #+#    #+#             */
-/*   Updated: 2025/01/09 21:51:50 by fbicane          ###   ########.fr       */
+/*   Created: 2025/01/10 15:19:32 by fbicane           #+#    #+#             */
+/*   Updated: 2025/01/10 18:14:56 by fbicane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_stack	**ft_argv_to_int_list(char **argv)
+void	ft_push(t_stack **stack_1, t_stack **stack_2)
 {
-	t_stack	*head;
-	t_stack	*tmp_block;
-	int		i;
-	int		ind;
-
-	head = NULL;
-	i = 1;
-	ind = 0;
-	while (argv[i])
-	{
-		tmp_block = ft_creat_block(ft_atoi(argv[i]), ind);
-		ind++;
-		ft_add_block(&head, tmp_block);
-		i++;
-	}
-	return (&head);
+	if (!stack_2 || !(*stack_2))
+		return ;
+	ft_add_block_front(stack_1, (*stack_2));
+	(*stack_2) = (*stack_2)->next_node;
+	if (*stack_2)
+		(*stack_2)->prev_node = NULL;
+	ft_readjust_index(stack_1);
+	ft_readjust_index(stack_2);
 }

@@ -1,27 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_creat_node.c                                    :+:      :+:    :+:   */
+/*   ft_argv_to_int_list.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fbicane <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/09 21:08:51 by fbicane           #+#    #+#             */
-/*   Updated: 2025/01/09 21:08:57 by fbicane          ###   ########.fr       */
+/*   Created: 2025/01/09 21:12:28 by fbicane           #+#    #+#             */
+/*   Updated: 2025/01/10 12:56:36 by fbicane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_stack	*ft_creat_node(int nbr, int ind)
+t_stack	*ft_argv_to_int_list(char **argv)
 {
-	t_stack	*new_node;
+	t_stack	*head;
+	t_stack	*tmp_block;
+	int		i;
+	int		ind;
 
-	new_node = malloc(sizeof(t_stack));
-	if (!new_node)
-		return (NULL);
-	new_node->prev_node = NULL;
-	new_node->data = nbr;
-	new_node->index = ind;
-	new_node->next_node = NULL;
-	return (new_node);
+	head = NULL;
+	i = 1;
+	ind = 0;
+	while (argv[i])
+	{
+		tmp_block = ft_creat_block(ft_atoi(argv[i]), ind);
+		ind++;
+		ft_add_block(&head, tmp_block);
+		i++;
+	}
+	return (head);
 }

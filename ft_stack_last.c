@@ -1,31 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_add_node.c                                      :+:      :+:    :+:   */
+/*   ft_stack_last.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fbicane <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/09 21:07:57 by fbicane           #+#    #+#             */
-/*   Updated: 2025/01/09 21:08:15 by fbicane          ###   ########.fr       */
+/*   Created: 2025/01/10 18:26:35 by fbicane           #+#    #+#             */
+/*   Updated: 2025/01/10 18:30:28 by fbicane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_add_node(t_stack **stack, t_stack *node)
+t_stack	*ft_stack_last(t_stack *stack)
 {
-	t_stack	*tmp_head;
+	t_stack	*stack_ptr;
 
-	if (!stack || !node)
-		return ;
-	if (!*stack)
-	{
-		*stack = node;
-		return ;
-	}
-	tmp_head = *stack;
-	while (tmp_head->next_node)
-		tmp_head = tmp_head->next_node;
-	tmp_head->next_node = node;
-	node->prev_node = tmp_head;
+	if (!stack)
+		return (NULL);
+	stack_ptr = stack;
+	while (stack_ptr->next_node)
+		stack_ptr = stack_ptr->next_node;
+	return (stack_ptr);
 }
