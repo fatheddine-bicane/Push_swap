@@ -6,7 +6,7 @@
 /*   By: fbicane <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 20:19:51 by fbicane           #+#    #+#             */
-/*   Updated: 2025/01/10 18:30:14 by fbicane          ###   ########.fr       */
+/*   Updated: 2025/01/10 21:49:45 by fbicane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ void	ft_add_block_back(t_stack **stack, t_stack *block);
 void	ft_add_block_front(t_stack **stack, t_stack *block);
 void	ft_swap(t_stack **stack);
 void	ft_push(t_stack **stack_1, t_stack **stack_2);
+void	ft_rotate(t_stack **stack);
+void	ft_reverse_rotate(t_stack **stack);
 void	ft_readjust_index(t_stack **stack);
 t_stack	*ft_stack_last(t_stack *stack);
 
