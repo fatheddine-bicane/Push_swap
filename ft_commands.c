@@ -6,13 +6,13 @@
 /*   By: fbicane <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 14:12:02 by fbicane           #+#    #+#             */
-/*   Updated: 2025/01/11 14:24:22 by fbicane          ###   ########.fr       */
+/*   Updated: 2025/01/13 14:24:16 by fbicane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_push(t_stack **stack_1, t_stack **stack_2)
+void	ft_push(t_stack **stack_1, t_stack **stack_2, char stack_name)
 {
 	if (!stack_2 || !(*stack_2))
 		return ;
@@ -22,6 +22,10 @@ void	ft_push(t_stack **stack_1, t_stack **stack_2)
 		(*stack_2)->prev_node = NULL;
 	ft_readjust_index(stack_1);
 	ft_readjust_index(stack_2);
+	if (stack_name == 'a')
+		write(1, "pa\n", 3);
+	else if (stack_name == 'b')
+		write(1, "pb\n", 3);
 }
 
 void	ft_swap_a(t_stack **stack)

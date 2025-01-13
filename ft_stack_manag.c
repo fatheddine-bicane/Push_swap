@@ -74,27 +74,25 @@ t_stack	*ft_stack_last(t_stack *stack)
 	return (stack_ptr);
 }
 
-t_stack	**ft_argv_to_int_list(char **argv, int *len)
+void	ft_argv_to_int_list(t_stack **stack, char **argv, int *len)
 {
-	t_stack	**stack_head;
 	t_stack	*new_block;
 	int		i;
 	int		index;
 
 	if (!argv || !(*argv[1]))
-		return (NULL);
+		return ;
 	if (ft_syntax_check(argv) == 0)
-		return (NULL);
+		return ;
 	i = 1;
 	index = 0;
 	while (argv[i])
 	{
 		new_block = ft_creat_block(ft_atoi(argv[i]), index);
-		ft_add_block_back(stack_head, new_block);
+		ft_add_block_back(stack, new_block);
 		i++;
 		index++;
 	}
 	(*len) = index;
-	ft_readjust_index(stack_head);
-	return (stack_head);
+	ft_readjust_index(stack);
 }
