@@ -6,7 +6,7 @@
 /*   By: fbicane <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 14:12:02 by fbicane           #+#    #+#             */
-/*   Updated: 2025/01/13 14:24:16 by fbicane          ###   ########.fr       */
+/*   Updated: 2025/01/13 15:54:42 by fbicane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	ft_push(t_stack **stack_1, t_stack **stack_2, char stack_name)
 		write(1, "pb\n", 3);
 }
 
-void	ft_swap_a(t_stack **stack)
+void	ft_swap(t_stack **stack, char stack_name)
 {
 	t_stack	*first_block;
 	t_stack	*second_block;
@@ -42,9 +42,15 @@ void	ft_swap_a(t_stack **stack)
 	first_block->data = second_block->data;
 	second_block->data = tmp_data;
 	ft_readjust_index(stack);
+	if (stack_name == 'a')
+		write(1, "sa\n", 3);
+	else if (stack_name == 'b')
+		write(1, "sb\n", 3);
+	else if (stack_name == 's')
+		write(1, "ss\n", 3);
 }
 
-void	ft_rotate(t_stack **stack)
+void	ft_rotate(t_stack **stack, char stack_name)
 {
 	t_stack	*stack_ptr1;
 	t_stack	*stack_ptr2;
@@ -61,9 +67,15 @@ void	ft_rotate(t_stack **stack)
 	stack_ptr1->prev_node = stack_ptr2;
 	stack_ptr1->next_node = NULL;
 	ft_readjust_index(stack);
+	if (stack_name == 'a')
+		write(1, "ra\n", 3);
+	else if (stack_name == 'b')
+		write(1, "rb\n", 3);
+	else if (stack_name == 'r')
+		write(1, "rr\n", 3);
 }
 
-void	ft_reverse_rotate(t_stack **stack)
+void	ft_reverse_rotate(t_stack **stack, char stack_name)
 {
 	t_stack	*stack_ptr_last;
 	t_stack	*stack_ptr_second_last;
@@ -78,4 +90,10 @@ void	ft_reverse_rotate(t_stack **stack)
 	stack_ptr_last->next_node = (*stack);
 	(*stack) = stack_ptr_last;
 	ft_readjust_index(stack);
+	if (stack_name == 'a')
+		write(1, "rra\n", 4);
+	else if (stack_name == 'b')
+		write(1, "rrb\n", 4);
+	else if (stack_name == 'r')
+		write(1, "rrr\n", 4);
 }

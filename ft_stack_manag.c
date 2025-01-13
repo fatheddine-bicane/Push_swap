@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_block_manag.c                                   :+:      :+:    :+:   */
+/*   ft_stack_manag.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fbicane <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 14:20:00 by fbicane           #+#    #+#             */
-/*   Updated: 2025/01/11 14:24:16 by fbicane          ###   ########.fr       */
+/*   Updated: 2025/01/13 18:45:17 by fbicane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ t_stack	*ft_stack_last(t_stack *stack)
 	return (stack_ptr);
 }
 
-void	ft_argv_to_int_list(t_stack **stack, char **argv, int *len)
+void	ft_creat_stack(t_stack **stack, char **argv)
 {
 	t_stack	*new_block;
 	int		i;
@@ -93,6 +93,4 @@ void	ft_argv_to_int_list(t_stack **stack, char **argv, int *len)
 		i++;
 		index++;
 	}
-	(*len) = index;
-	ft_readjust_index(stack);
 }
