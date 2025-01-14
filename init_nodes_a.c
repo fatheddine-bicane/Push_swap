@@ -57,3 +57,51 @@ static void	set_target_nodes_a(t_stack *stack_a, t_stack *stack_b)
 		stack_a = stack_a->next_node;
 	}
 }
+static void	set_cost_a(t_stack *stack_a, t_stack *stack_b)
+{
+	int	stack_a_len;
+	int	stack_b_len;
+
+	stack_a_len = stack_len(stack_a);
+	stack_b_len = stack_len(stack_b);
+	while (stack_a)
+	{
+		stack_a->push_cost = stack_a->index;
+		if (!(stack_a->above_median))
+			stack_a->push_cost = stack_a_len - (stack_a->index);
+		if (stack_a->taget_node->above_median)
+			stack_a->push_cost += stack_a->taget_node->index;
+		else
+			stack_a->push_cost += stack_b_len - (stack_a->taget_node->index);
+		stack_a = stack_a->next_node;
+	}
+}
+
+void	set_cheapest(t_stack *stack)
+{
+	t_stack	*cheapest_node;
+	long	cheapest_value;
+
+	if (!stack)
+		return ;
+	cheapest_value = LONG_MAX;
+	while (stack)
+	{
+		if (stack->push_cost < cheapest_value)
+		{
+			cheapest_value = stack->push_cost;
+			cheapest_node = stack;
+		}
+		stack = stack->next_node;
+	}
+	cheapest_node->cheapest = true;
+}
+
+void	init_node(t_stack *stack_a, t_stack *stack_b)
+{
+	set_median(stack_a);
+	set_median(stack_b);
+	set_target_nodes_a(stack_a, stack_b);
+	set_cost_a(stack_a, stack_b);
+	set_cheapest(stack_a);
+}

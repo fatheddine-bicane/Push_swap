@@ -6,7 +6,7 @@
 /*   By: fbicane <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 14:12:02 by fbicane           #+#    #+#             */
-/*   Updated: 2025/01/13 15:54:42 by fbicane          ###   ########.fr       */
+/*   Updated: 2025/01/14 16:14:18 by fbicane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,6 @@ void	ft_swap(t_stack **stack, char stack_name)
 		write(1, "sa\n", 3);
 	else if (stack_name == 'b')
 		write(1, "sb\n", 3);
-	else if (stack_name == 's')
-		write(1, "ss\n", 3);
 }
 
 void	ft_rotate(t_stack **stack, char stack_name)
@@ -71,8 +69,6 @@ void	ft_rotate(t_stack **stack, char stack_name)
 		write(1, "ra\n", 3);
 	else if (stack_name == 'b')
 		write(1, "rb\n", 3);
-	else if (stack_name == 'r')
-		write(1, "rr\n", 3);
 }
 
 void	ft_reverse_rotate(t_stack **stack, char stack_name)
@@ -94,6 +90,4 @@ void	ft_reverse_rotate(t_stack **stack, char stack_name)
 		write(1, "rra\n", 4);
 	else if (stack_name == 'b')
 		write(1, "rrb\n", 4);
-	else if (stack_name == 'r')
-		write(1, "rrr\n", 4);
 }
