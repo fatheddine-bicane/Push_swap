@@ -6,7 +6,7 @@
 /*   By: fbicane <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 16:38:50 by fbicane           #+#    #+#             */
-/*   Updated: 2025/01/15 15:18:40 by fbicane          ###   ########.fr       */
+/*   Updated: 2025/01/15 16:54:19 by fbicane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,17 @@ static void	push_b_to_a(t_stack **stack_b, t_stack **stack_a)
 	ft_push(stack_a, stack_b, 'a');
 }
 
+static void	min_data_on_top(t_stack **stack)
+{
+	while ((*stack)->data != (find_min(*stack)->data))
+	{
+		if (find_min(*stack)->above_median)
+			ft_rotate(stack, 'a');
+		else
+			ft_reverse_rotate(stack, 'a');
+	}
+}
+
 void	ft_sort_stack(t_stack **stack_a, t_stack **stack_b)
 {
 	int	stack_a_len;
@@ -55,6 +66,15 @@ void	ft_sort_stack(t_stack **stack_a, t_stack **stack_b)
 		ft_push(stack_b, stack_a, 'b');
 	while (stack_a_len-- > 3 && !stack_sorted(*stack_a))
 	{
-		init_node(*stack_a, *stack_b);
+		init_node_a(*stack_a, *stack_b);
+		push_a_to_b(stack_a, stack_b);
 	}
+	sort_for_tree(stack_a);
+	while (*stack_b)
+	{
+		init_node_b(*stack_a, *stack_b);
+		push_b_to_a(stack_b, stack_a);
+	}
+	set_median(*stack_a);
+	min_data_on_top(stack_a);
 }

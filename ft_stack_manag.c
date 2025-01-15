@@ -83,12 +83,12 @@ void	ft_creat_stack(t_stack **stack, char **argv)
 	if (!argv || !(*argv[1]))
 		return ;
 	if (ft_syntax_check(argv) == 0)
-		return ;
+		ft_error();
 	i = 1;
 	index = 0;
 	while (argv[i])
 	{
-		new_block = ft_creat_block(ft_atoi(argv[i]), index);
+		new_block = ft_creat_node(ft_atoi(argv[i]), index);
 		ft_add_block_back(stack, new_block);
 		i++;
 		index++;

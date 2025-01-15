@@ -12,13 +12,13 @@
 
 #include "push_swap.h"
 
-int	ft_check_dupps(t_stack *stack, int len)
+void	ft_check_dupps(t_stack *stack, int len)
 {
 	t_stack	*stack_ptr1;
 	t_stack	*stack_ptr2;
 
 	if (!stack || len == 1)
-		return (1);
+		ft_error();
 	stack_ptr1 = stack;
 	while (stack_ptr1->next_node)
 	{
@@ -26,12 +26,11 @@ int	ft_check_dupps(t_stack *stack, int len)
 		while (stack_ptr2)
 		{
 			if (stack_ptr1->data == stack_ptr2->data)
-				return (0);
+				ft_error();
 			stack_ptr2 = stack_ptr2->next_node;
 		}
 		stack_ptr1 = stack_ptr1->next_node;
 	}
-	return (1);
 }
 
 int	ft_syntax_check(char **argv)

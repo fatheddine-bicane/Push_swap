@@ -62,13 +62,15 @@ void	rotate_both(t_stack **stack_a, t_stack **stack_b,
 void	reverse_rotate_both(t_stack **stack_a, t_stack **stack_b,
 			t_stack *cheapest_node);
 void	ft_prep_for_push(t_stack **stack, t_stack *top_node, char stack_name);
+void	init_node_b(t_stack *stack_a, t_stack *stack_b);
+void	init_node_a(t_stack *stack_a, t_stack *stack_b);
 /*--------------------------------------*/
 
 // utility functions that help creating and manipulating a stack
 /*-------------------------------------------------------------*/
 char	**ft_split(char const *s, char c);
 int		ft_atoi(const char *str);
-t_stack	*ft_creat_block(int nbr, int ind);
+t_stack	*ft_creat_node(int nbr, int ind);
 void	ft_add_block_back(t_stack **stack, t_stack *block);
 void	ft_add_block_front(t_stack **stack, t_stack *block);
 void	ft_creat_stack(t_stack **stack, char **argv);
@@ -77,7 +79,7 @@ t_stack	*ft_stack_last(t_stack *stack);
 /*-------------------------------------------------------------*/
 
 int		ft_syntax_check(char **argv);
-int		ft_check_dupps(t_stack *stack, int len);
+void	ft_check_dupps(t_stack *stack, int len);
 void	ft_free_stack(t_stack **stack);
 void	ft_error(void);
 
