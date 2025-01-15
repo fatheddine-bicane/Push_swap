@@ -1,38 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   commands_for_both.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fbicane <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/11 18:01:36 by fbicane           #+#    #+#             */
-/*   Updated: 2025/01/15 16:04:45 by fbicane          ###   ########.fr       */
+/*   Created: 2025/01/14 16:04:35 by fbicane           #+#    #+#             */
+/*   Updated: 2025/01/15 16:07:00 by fbicane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int argc, char **argv)
+void	ft_rr(t_stack **stack_a, t_stack **stack_b)
 {
-	t_stack	*a;
-	t_stack	*b;
-
-	a = NULL;
-	b = NULL;
-	if (argc == 1 || (argc == 2 && !argv[1][0]))
-		return (1);
-	if (argc == 2)
-		argv = ft_split(argv[1], 32);
-	ft_creat_stack(&a, (argv));
-	if (!stack_sorted(a))
-	{
-		if (stack_len(a) == 2)
-			ft_swap(&a, 'a');
-		else if (stack_len(a) == 3)
-			sort_for_tree(&a);
-		else
-			ft_sort_stack(&a, &b);
-	}
-	ft_free_stack(&a);
+	ft_rotate(stack_a, NONE);
+	ft_rotate(stack_b, NONE);
+	write(1, "rr\n", 3);
 }
 
+void	ft_rrr(t_stack **stack_a, t_stack **stack_b)
+{
+	ft_reverse_rotate(stack_a, NONE);
+	ft_reverse_rotate(stack_b, NONE);
+	write(1, "rrr\n", 4);
+}
+
+void	ft_ss(t_stack **stack_a, t_stack **stack_b)
+{
+	ft_swap(stack_a, NONE);
+	ft_swap(stack_b, NONE);
+	write(1, "ss\n", 3);
+}

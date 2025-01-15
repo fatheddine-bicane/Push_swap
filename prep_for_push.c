@@ -1,34 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_commands_for_both.c                             :+:      :+:    :+:   */
+/*   prep_for_push.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fbicane <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/14 16:04:35 by fbicane           #+#    #+#             */
-/*   Updated: 2025/01/14 16:23:08 by fbicane          ###   ########.fr       */
+/*   Created: 2025/01/15 14:35:01 by fbicane           #+#    #+#             */
+/*   Updated: 2025/01/15 15:05:19 by fbicane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_rr(t_stack **stack_a, t_stack **stack_b)
+void	ft_prep_for_push(t_stack **stack, t_stack *top_node, char stack_name)
 {
-	ft_rotate(stack_a, NONE);
-	ft_rotate(stack_b, NONE);
-	write(1, "rr\n", 3);
-}
-
-void	ft_rrr(t_stack **stack_a, t_stack **stack_b)
-{
-	ft_reverse_rotate(stack_a, NONE);
-	ft_reverse_rotate(stack_b, NONE);
-	write(1, "rrr\n", 4);
-}
-
-void	ft_ss(t_stack **stack_a, t_stack **stack_b)
-{
-	ft_swap(stack_a, NONE);
-	ft_swap(stack_b, NONE);
-	write(1, "ss\n", 3);
+	while((*stack) != top_node)
+	{
+		if (top_node->above_median)
+			ft_rotate(stack, stack_name);
+		else
+			ft_reverse_rotate(stack, stack_name);
+	}
 }

@@ -6,7 +6,7 @@
 /*   By: fbicane <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 18:21:27 by fbicane           #+#    #+#             */
-/*   Updated: 2025/01/15 14:01:35 by fbicane          ###   ########.fr       */
+/*   Updated: 2025/01/15 15:40:37 by fbicane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,7 @@ void	set_cheapest(t_stack *stack)
 	cheapest_node->cheapest = true;
 }
 
-void	init_node(t_stack *stack_a, t_stack *stack_b)
+void	init_node_a(t_stack *stack_a, t_stack *stack_b)
 {
 	set_median(stack_a);
 	set_median(stack_b);

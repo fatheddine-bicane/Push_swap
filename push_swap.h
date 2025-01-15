@@ -6,7 +6,7 @@
 /*   By: fbicane <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 20:19:51 by fbicane           #+#    #+#             */
-/*   Updated: 2025/01/15 13:58:46 by fbicane          ###   ########.fr       */
+/*   Updated: 2025/01/15 16:03:22 by fbicane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ typedef struct s_stack
 
 // The algorithm that will sort the satck
 void	sort_for_tree(t_stack **stack);
+void	ft_sort_stack(t_stack **stack_a, t_stack **stack_b);
 
 // commands => u have define what stack r u dealing with a,b or both.
 /*---------------------------------------------------------------------*/
@@ -50,14 +51,17 @@ void	ft_rr(t_stack **stack_a, t_stack **stack_b);
 // utility functions for sorting
 /*--------------------------------------*/
 t_stack	*find_max(t_stack *stack);
+t_stack	*find_min(t_stack *stack);
 bool	stack_sorted(t_stack *stack);
 int		stack_len(t_stack *stack);
-void	init_node(t_stack *stack_a, t_stack *stack_b);
+void	init_node_a(t_stack *stack_a, t_stack *stack_b);
+void	init_node_b(t_stack *stack_a, t_stack *stack_b);
 void	set_median(t_stack *stack);
 void	rotate_both(t_stack **stack_a, t_stack **stack_b,
 			t_stack *cheapest_node);
 void	reverse_rotate_both(t_stack **stack_a, t_stack **stack_b,
 			t_stack *cheapest_node);
+void	ft_prep_for_push(t_stack **stack, t_stack *top_node, char stack_name);
 /*--------------------------------------*/
 
 // utility functions that help creating and manipulating a stack

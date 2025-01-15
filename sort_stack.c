@@ -6,7 +6,7 @@
 /*   By: fbicane <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 16:38:50 by fbicane           #+#    #+#             */
-/*   Updated: 2025/01/15 14:23:36 by fbicane          ###   ########.fr       */
+/*   Updated: 2025/01/15 15:18:40 by fbicane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static t_stack	*get_cheapest_node(t_stack *stack)
 	return (stack);
 }
 
-static void	move_a_to_b(t_stack **stack_a, t_stack **stack_b)
+static void	push_a_to_b(t_stack **stack_a, t_stack **stack_b)
 {
 	t_stack	*cheapest_node;
 
@@ -33,6 +33,15 @@ static void	move_a_to_b(t_stack **stack_a, t_stack **stack_b)
 	else if (!(cheapest_node->above_median)
 		&& !(cheapest_node->taget_node->above_median))
 		reverse_rotate_both(stack_a, stack_b, cheapest_node);
+	ft_prep_for_push(stack_a, cheapest_node, 'a');
+	ft_prep_for_push(stack_b, cheapest_node->taget_node, 'b');
+	ft_push(stack_b, stack_a, 'b');
+}
+
+static void	push_b_to_a(t_stack **stack_b, t_stack **stack_a)
+{
+	ft_prep_for_push(stack_a, (*stack_b)->taget_node, 'a');
+	ft_push(stack_a, stack_b, 'a');
 }
 
 void	ft_sort_stack(t_stack **stack_a, t_stack **stack_b)
