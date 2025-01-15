@@ -6,7 +6,7 @@
 /*   By: fbicane <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 20:05:46 by fbicane           #+#    #+#             */
-/*   Updated: 2025/01/13 14:24:14 by fbicane          ###   ########.fr       */
+/*   Updated: 2025/01/15 14:00:10 by fbicane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 void	ft_free_stack(t_stack **stack)
 {
-	t_stack *stack_ptr;
+	t_stack	*stack_ptr;
 
 	if (!stack)
 		return ;
-	while(*stack)
+	while (*stack)
 	{
 		stack_ptr = (*stack)->next_node;
 		free(*stack);

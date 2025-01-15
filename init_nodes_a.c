@@ -6,7 +6,7 @@
 /*   By: fbicane <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 18:21:27 by fbicane           #+#    #+#             */
-/*   Updated: 2025/01/13 18:55:35 by fbicane          ###   ########.fr       */
+/*   Updated: 2025/01/15 14:01:35 by fbicane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ static void	set_target_nodes_a(t_stack *stack_a, t_stack *stack_b)
 		stack_a = stack_a->next_node;
 	}
 }
+
 static void	set_cost_a(t_stack *stack_a, t_stack *stack_b)
 {
 	int	stack_a_len;

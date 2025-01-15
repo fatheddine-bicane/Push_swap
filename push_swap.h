@@ -6,7 +6,7 @@
 /*   By: fbicane <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 20:19:51 by fbicane           #+#    #+#             */
-/*   Updated: 2025/01/14 16:26:35 by fbicane          ###   ########.fr       */
+/*   Updated: 2025/01/15 13:58:46 by fbicane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,10 @@ bool	stack_sorted(t_stack *stack);
 int		stack_len(t_stack *stack);
 void	init_node(t_stack *stack_a, t_stack *stack_b);
 void	set_median(t_stack *stack);
+void	rotate_both(t_stack **stack_a, t_stack **stack_b,
+			t_stack *cheapest_node);
+void	reverse_rotate_both(t_stack **stack_a, t_stack **stack_b,
+			t_stack *cheapest_node);
 /*--------------------------------------*/
 
 // utility functions that help creating and manipulating a stack
