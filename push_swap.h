@@ -6,7 +6,7 @@
 /*   By: fbicane <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 20:19:51 by fbicane           #+#    #+#             */
-/*   Updated: 2025/01/15 16:03:22 by fbicane          ###   ########.fr       */
+/*   Updated: 2025/01/16 18:33:28 by fbicane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,8 @@ void	ft_sort_stack(t_stack **stack_a, t_stack **stack_b);
 
 // commands => u have define what stack r u dealing with a,b or both.
 /*---------------------------------------------------------------------*/
-void	ft_push(t_stack **stack_1, t_stack **stack_2, char stack_name);
+/*void	ft_push(t_stack **stack_1, t_stack **stack_2, char stack_name);*/
+void	ft_push(t_stack **stack_dst, t_stack **stack_src, char stack_name);
 void	ft_swap(t_stack **stack, char stack_name);
 void	ft_rotate(t_stack **stack, char stack_name);
 void	ft_reverse_rotate(t_stack **stack, char stack_name);
@@ -77,6 +78,12 @@ void	ft_creat_stack(t_stack **stack, char **argv);
 void	ft_readjust_index(t_stack **stack);
 t_stack	*ft_stack_last(t_stack *stack);
 /*-------------------------------------------------------------*/
+
+
+void	ft_pa(t_stack **stack_a, t_stack **stack_b);
+void	ft_pb(t_stack **stack_b, t_stack **stack_a);
+
+
 
 int		ft_syntax_check(char **argv);
 void	ft_check_dupps(t_stack *stack, int len);

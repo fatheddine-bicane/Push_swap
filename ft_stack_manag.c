@@ -59,7 +59,8 @@ void	ft_add_block_front(t_stack **stack, t_stack *block)
 	block->next_node = (*stack);
 	(*stack)->prev_node = block;
 	(*stack) = block;
-	ft_readjust_index(stack);
+	/*ft_readjust_index(stack);*/
+	set_median(*stack);
 }
 
 t_stack	*ft_stack_last(t_stack *stack)

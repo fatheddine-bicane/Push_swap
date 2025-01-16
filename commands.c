@@ -20,8 +20,10 @@ void	ft_push(t_stack **stack_1, t_stack **stack_2, char stack_name)
 	(*stack_2) = (*stack_2)->next_node;
 	if (*stack_2)
 		(*stack_2)->prev_node = NULL;
-	ft_readjust_index(stack_1);
-	ft_readjust_index(stack_2);
+	/*ft_readjust_index(stack_1);*/
+	set_median(*stack_1);
+	set_median(*stack_2);
+	/*ft_readjust_index(stack_2);*/
 	if (stack_name == 'a')
 		write(1, "pa\n", 3);
 	else if (stack_name == 'b')
