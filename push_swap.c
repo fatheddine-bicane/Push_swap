@@ -12,6 +12,21 @@
 
 #include "push_swap.h"
 
+static void	ft_free_argv(char **arr_s)
+{
+	int	i;
+
+	i = 0;
+	if (!arr_s)
+		return ;
+	while (arr_s[i])
+	{
+		free(arr_s[i]);
+		i++;
+	}
+	free (arr_s);
+}
+
 int	main(int argc, char **argv)
 {
 	t_stack	*stack_a;
@@ -20,13 +35,13 @@ int	main(int argc, char **argv)
 
 	stack_a = NULL;
 	stack_b = NULL;
-	splited_argv = NULL;
 	if (argc == 1 || (argc == 2 && !argv[1][0]))
 		return (1);
 	if (argc == 2)
 	{
 		splited_argv = ft_split(argv[1], 32);
 		argv = splited_argv;
+		ft_free_argv(splited_argv);
 	}
 	ft_creat_stack(&stack_a, argv);
 	if (!stack_sorted(stack_a))
@@ -40,4 +55,3 @@ int	main(int argc, char **argv)
 	}
 	ft_free_stack(&stack_a);
 }
-

@@ -15,13 +15,18 @@
 void	ft_free_stack(t_stack **stack)
 {
 	t_stack	*stack_ptr;
+	t_stack	*next_stack_ptr;
 
-	if (!stack)
+	if (!stack || !(*stack))
 		return ;
-	while (*stack)
+	stack_ptr = *stack;
+	while (stack_ptr)
 	{
-		stack_ptr = (*stack)->next_node;
-		free(*stack);
-		(*stack) = stack_ptr;
+		next_stack_ptr = stack_ptr->next_node;
+		stack_ptr->next_node = NULL;
+		stack_ptr->prev_node = NULL;
+		free(stack_ptr);
+		stack_ptr = next_stack_ptr;
 	}
+	*stack = NULL;
 }

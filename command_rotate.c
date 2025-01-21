@@ -35,6 +35,17 @@ void	ft_rotate(t_stack **stack, char stack_name)
 		write(1, "rb\n", 3);
 }
 
+/*void	ft_ra(t_stack **stack_a)*/
+/*{*/
+/*	ft_rotate(stack_a);*/
+/*	write(1, "ra\n", 3);*/
+/*}*/
+/**/
+/*void	ft_rb(t_stack **stack_b)*/
+/*{*/
+/**/
+/*}*/
+
 void	ft_rr(t_stack **stack_a, t_stack **stack_b)
 {
 	ft_rotate(stack_a, NONE);

@@ -90,7 +90,6 @@ void	ft_pa(t_stack **stack_a, t_stack **stack_b);
 void	ft_pb(t_stack **stack_b, t_stack **stack_a);
 
 
-
 bool	ft_syntax_check(char *argv);
 int		ft_check_dupps(t_stack *stack, int to_check);
 void	ft_free_stack(t_stack **stack);
