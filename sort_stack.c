@@ -27,6 +27,8 @@ static void	push_a_to_b(t_stack **stack_a, t_stack **stack_b)
 {
 	t_stack	*cheapest_node;
 
+	if (!stack_a || !(*stack_a) || !stack_b)
+        return; // Avoid null pointers.
 	cheapest_node = get_cheapest_node(*stack_a);
 	if (cheapest_node->above_median && cheapest_node->taget_node->above_median)
 		rotate_both(stack_a, stack_b, cheapest_node);
@@ -51,7 +53,7 @@ static void	min_data_on_top(t_stack **stack)
 		if (find_min(*stack)->above_median)
 			ft_rotate(stack, 'a');
 		else
-			ft_reverse_rotate(stack, 'a');
+			rra(stack);
 	}
 }
 
@@ -69,6 +71,7 @@ void	ft_sort_stack(t_stack **stack_a, t_stack **stack_b)
 		init_node_a(*stack_a, *stack_b);
 		push_a_to_b(stack_a, stack_b);
 	}
+	printf("Hello WOLRD\n");
 	sort_for_tree(stack_a);
 	while (*stack_b)
 	{

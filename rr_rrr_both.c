@@ -27,7 +27,7 @@ void	reverse_rotate_both(t_stack **stack_a,
 					t_stack *cheapest_node)
 {
 	while ((*stack_b) != cheapest_node->taget_node && (*stack_a) != cheapest_node)
-		ft_rrr(stack_a, stack_b);
+		rrr(stack_a, stack_b);
 	set_median(*stack_a);
 	set_median(*stack_b);
 }

@@ -23,8 +23,7 @@ int	main(int argc, char **argv)
 		return (1);
 	if (argc == 2)
 		argv = ft_split(argv[1], 32);
-	ft_creat_stack(&stack_a, (argv));
-	ft_check_dupps(stack_a, stack_len(stack_a));
+	ft_creat_stack(&stack_a, argv);
 	if (!stack_sorted(stack_a))
 	{
 		if (stack_len(stack_a) == 2)

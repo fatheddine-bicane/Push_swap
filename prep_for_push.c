@@ -19,6 +19,11 @@ void	ft_prep_for_push(t_stack **stack, t_stack *top_node, char stack_name)
 		if (top_node->above_median)
 			ft_rotate(stack, stack_name);
 		else
-			ft_reverse_rotate(stack, stack_name);
+		{
+			if (stack_name == 'a')
+				rra(stack);
+			else if (stack_name == 'b')
+				rrb(stack);
+		}
 	}
 }

@@ -20,7 +20,7 @@ void	sort_for_tree(t_stack **stack)
 	if ((*stack) == highest_data)
 		ft_rotate(stack, 'a');
 	else if ((*stack)->next_node == highest_data)
-		ft_reverse_rotate(stack, 'a');
+		rra(stack);
 	if ((*stack)->data > (*stack)->next_node->data)
 		ft_swap(stack, 'a');
 }

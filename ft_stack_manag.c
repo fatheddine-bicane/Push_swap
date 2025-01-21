@@ -75,23 +75,67 @@ t_stack	*ft_stack_last(t_stack *stack)
 	return (stack_ptr);
 }
 
-void	ft_creat_stack(t_stack **stack, char **argv)
+static void	add_node(t_stack **stack, int num)
 {
-	t_stack	*new_block;
-	int		i;
-	int		index;
+	t_stack	*new_node;
+	t_stack	*last_node;
 
-	if (!argv || !(*argv[1]))
+	if (!stack)
 		return ;
-	if (ft_syntax_check(argv) == 0)
-		ft_error();
-	i = 1;
-	index = 0;
-	while (argv[i])
+	new_node = malloc(sizeof(t_stack));
+	if (!new_node)
+		return ;
+	new_node->data = num;
+	new_node->cheapest = false;
+	new_node->next_node = NULL;
+	if (!(*stack))
 	{
-		new_block = ft_creat_node(ft_atoi(argv[i]), index);
-		ft_add_block_back(stack, new_block);
-		i++;
-		index++;
+		*stack = new_node;
+		(*stack)->prev_node = NULL;
+	}
+	else
+	{
+		last_node = ft_stack_last(*stack);
+		last_node->next_node = new_node;
+		new_node->prev_node = last_node;
 	}
 }
+
+void	ft_creat_stack(t_stack **stack, char **argv)
+{
+	long	n;
+	int		i;
+
+	i = 1;
+	while (argv[i])
+	{
+		if (ft_syntax_check(argv[i]))
+			ft_error(stack);
+		n = ft_atoi(argv[i]);
+		if (n > INT_MAX || n < INT_MIN)
+			ft_error(stack);
+		if (ft_check_dupps((*stack), (int)n))
+			ft_error(stack);
+		add_node(stack, (int)n);
+		i++;
+	}
+}
+
+/*	t_stack	*new_block;*/
+/*	int		i;*/
+/*	int		index;*/
+/**/
+/*	if (!argv || !(*argv[1]))*/
+/*		return ;*/
+/*	if (ft_syntax_check(argv) == 0)*/
+/*		ft_error();*/
+/*	i = 1;*/
+/*	index = 0;*/
+/*	while (argv[i])*/
+/*	{*/
+/*		new_block = ft_creat_node(ft_atoi(argv[i]), index);*/
+/*		ft_add_block_back(stack, new_block);*/
+/*		i++;*/
+/*		index++;*/
+/*	}*/
+/*}*/

@@ -17,6 +17,7 @@
 # include <unistd.h>
 # include <stdbool.h>
 # include <limits.h>
+# include <stdio.h>
 
 typedef struct s_stack
 {
@@ -42,7 +43,12 @@ void	ft_sort_stack(t_stack **stack_a, t_stack **stack_b);
 void	ft_push(t_stack **stack_dst, t_stack **stack_src, char stack_name);
 void	ft_swap(t_stack **stack, char stack_name);
 void	ft_rotate(t_stack **stack, char stack_name);
-void	ft_reverse_rotate(t_stack **stack, char stack_name);
+void	reverse_rotate(t_stack **stack);
+//
+void	rrr(t_stack **stack_a, t_stack **stack_b);
+void	rra(t_stack **stack_a);
+void	rrb(t_stack **stack_b);
+
 /*now commands for both stack*/
 void	ft_ss(t_stack **stack_a, t_stack **stack_b);
 void	ft_rrr(t_stack **stack_a, t_stack **stack_b);
@@ -70,7 +76,7 @@ void	init_node_a(t_stack *stack_a, t_stack *stack_b);
 // utility functions that help creating and manipulating a stack
 /*-------------------------------------------------------------*/
 char	**ft_split(char const *s, char c);
-int		ft_atoi(const char *str);
+long		ft_atoi(const char *str);
 t_stack	*ft_creat_node(int nbr, int ind);
 void	ft_add_block_back(t_stack **stack, t_stack *block);
 void	ft_add_block_front(t_stack **stack, t_stack *block);
@@ -85,9 +91,9 @@ void	ft_pb(t_stack **stack_b, t_stack **stack_a);
 
 
 
-int		ft_syntax_check(char **argv);
-void	ft_check_dupps(t_stack *stack, int len);
+bool	ft_syntax_check(char *argv);
+int		ft_check_dupps(t_stack *stack, int to_check);
 void	ft_free_stack(t_stack **stack);
-void	ft_error(void);
+void	ft_error(t_stack **stack);
 
 #endif

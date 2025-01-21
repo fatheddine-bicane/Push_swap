@@ -12,8 +12,9 @@
 
 #include "push_swap.h"
 
-void	ft_error(void)
+void	ft_error(t_stack **stack)
 {
+	ft_free_stack(stack);
 	write(1, "Error\n", 6);
 	exit(1);
 }

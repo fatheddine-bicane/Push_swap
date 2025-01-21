@@ -12,47 +12,31 @@
 
 #include "push_swap.h"
 
-void	ft_check_dupps(t_stack *stack, int len)
+int	ft_check_dupps(t_stack *stack, int to_check)
 {
-	t_stack	*stack_ptr1;
-	t_stack	*stack_ptr2;
-
-	if (!stack || len == 1)
-		ft_error();
-	stack_ptr1 = stack;
-	while (stack_ptr1->next_node)
+	if (!stack)
+		return (0);
+	while (stack)
 	{
-		stack_ptr2 = stack_ptr1->next_node;
-		while (stack_ptr2)
-		{
-			if (stack_ptr1->data == stack_ptr2->data)
-				ft_error();
-			stack_ptr2 = stack_ptr2->next_node;
-		}
-		stack_ptr1 = stack_ptr1->next_node;
+		if (stack->data == to_check)
+			return (1);
+		stack = stack->next_node;
 	}
+	return (0);
 }
 
-int	ft_syntax_check(char **argv)
+bool	ft_syntax_check(char *argv)
 {
-	int		i;
-	int		j;
-	char	av;
-
-	i = 1;
-	while (argv[i])
+	if (!(*argv == '+' || *argv == '-' || (*argv >= '0' && *argv <= '9')))
+		return (true);
+	if ((*argv == '+' || *argv == '-') && !(argv[1] >= '0' && argv[1] <= '9'))
+		return (true);
+	while (*++argv)
 	{
-		j = 0;
-		while (argv[i][j])
-		{
-			av = argv[i][j];
-			if (!(av == '-' || av == '+' || (av >= '0' && av <= '9')))
-				return (0);
-			j++;
-		}
-		i++;
+		if (!(*argv >= '0' && *argv <= '9'))
+			return (true);
 	}
-	return (1);
+	return (false);
 }
 
 void	ft_readjust_index(t_stack **stack)
@@ -70,7 +54,7 @@ void	ft_readjust_index(t_stack **stack)
 	}
 }
 
-int	ft_atoi(const char *str)
+long	ft_atoi(const char *str)
 {
 	int		i;
 	long	res;

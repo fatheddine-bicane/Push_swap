@@ -16,7 +16,7 @@ bool	stack_sorted(t_stack *stack)
 {
 	if (!stack)
 		return (true);
-	while (stack->next_node)
+	while (stack && stack->next_node)
 	{
 		if (stack->data > stack->next_node->data)
 			return (false);
