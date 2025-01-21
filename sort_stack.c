@@ -71,7 +71,6 @@ void	ft_sort_stack(t_stack **stack_a, t_stack **stack_b)
 		init_node_a(*stack_a, *stack_b);
 		push_a_to_b(stack_a, stack_b);
 	}
-	printf("Hello WOLRD\n");
 	sort_for_tree(stack_a);
 	while (*stack_b)
 	{

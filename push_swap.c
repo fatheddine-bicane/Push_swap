@@ -16,13 +16,18 @@ int	main(int argc, char **argv)
 {
 	t_stack	*stack_a;
 	t_stack	*stack_b;
+	char	**splited_argv;
 
 	stack_a = NULL;
 	stack_b = NULL;
+	splited_argv = NULL;
 	if (argc == 1 || (argc == 2 && !argv[1][0]))
 		return (1);
 	if (argc == 2)
-		argv = ft_split(argv[1], 32);
+	{
+		splited_argv = ft_split(argv[1], 32);
+		argv = splited_argv;
+	}
 	ft_creat_stack(&stack_a, argv);
 	if (!stack_sorted(stack_a))
 	{
