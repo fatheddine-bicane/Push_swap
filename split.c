@@ -12,20 +12,20 @@
 
 #include "push_swap.h"
 
-static void	ft_free(char **arr_s)
-{
-	int	i;
-
-	i = 0;
-	if (!arr_s)
-		return ;
-	while (arr_s[i])
-	{
-		free(arr_s[i]);
-		i++;
-	}
-	free (arr_s);
-}
+/*static void	ft_free(char **arr_s)*/
+/*{*/
+/*	int	i;*/
+/**/
+/*	i = 0;*/
+/*	if (!arr_s)*/
+/*		return ;*/
+/*	while (arr_s[i])*/
+/*	{*/
+/*		free(arr_s[i]);*/
+/*		i++;*/
+/*	}*/
+/*	free (arr_s);*/
+/*}*/
 
 static int	ft_count_words(const char *s, char c)
 {
@@ -76,7 +76,7 @@ static char	**arr_str_all(char const *s, char **arr_s, char c, int words)
 		arr_s[i] = malloc(len + 1);
 		if (!arr_s[i])
 		{
-			ft_free(arr_s);
+			ft_free_argv(arr_s);
 			return (NULL);
 		}
 		ft_strncpy(arr_s[i], s - len, len);

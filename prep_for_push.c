@@ -21,9 +21,9 @@ void	ft_prep_for_push(t_stack **stack, t_stack *top_node, char stack_name)
 		else
 		{
 			if (stack_name == 'a')
-				rra(stack);
+				reverse_rotate(stack, 'a');
 			else if (stack_name == 'b')
-				rrb(stack);
+				reverse_rotate(stack, 'b');
 		}
 	}
 }

@@ -43,7 +43,7 @@ void	ft_sort_stack(t_stack **stack_a, t_stack **stack_b);
 void	ft_push(t_stack **stack_dst, t_stack **stack_src, char stack_name);
 void	ft_swap(t_stack **stack, char stack_name);
 void	ft_rotate(t_stack **stack, char stack_name);
-void	reverse_rotate(t_stack **stack);
+void	reverse_rotate(t_stack **stack, char stack_name);
 //
 void	rrr(t_stack **stack_a, t_stack **stack_b);
 void	rra(t_stack **stack_a);
@@ -89,10 +89,11 @@ t_stack	*ft_stack_last(t_stack *stack);
 void	ft_pa(t_stack **stack_a, t_stack **stack_b);
 void	ft_pb(t_stack **stack_b, t_stack **stack_a);
 
+void	ft_free_argv(char **arr_s);
 
 bool	ft_syntax_check(char *argv);
 int		ft_check_dupps(t_stack *stack, int to_check);
 void	ft_free_stack(t_stack **stack);
-void	ft_error(t_stack **stack);
+void	ft_free_error(t_stack **stack);
 
 #endif

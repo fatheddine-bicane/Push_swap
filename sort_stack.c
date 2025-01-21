@@ -37,13 +37,13 @@ static void	push_a_to_b(t_stack **stack_a, t_stack **stack_b)
 		reverse_rotate_both(stack_a, stack_b, cheapest_node);
 	ft_prep_for_push(stack_a, cheapest_node, 'a');
 	ft_prep_for_push(stack_b, cheapest_node->taget_node, 'b');
-	ft_pb(stack_b, stack_a);
+	ft_push(stack_b, stack_a, 'b');
 }
 
 static void	push_b_to_a(t_stack **stack_b, t_stack **stack_a)
 {
 	ft_prep_for_push(stack_a, (*stack_b)->taget_node, 'a');
-	ft_pa(stack_a, stack_b);
+	ft_push(stack_a, stack_b, 'a');
 }
 
 static void	min_data_on_top(t_stack **stack)
@@ -53,7 +53,7 @@ static void	min_data_on_top(t_stack **stack)
 		if (find_min(*stack)->above_median)
 			ft_rotate(stack, 'a');
 		else
-			rra(stack);
+			reverse_rotate(stack, 'a');
 	}
 }
 
@@ -63,9 +63,9 @@ void	ft_sort_stack(t_stack **stack_a, t_stack **stack_b)
 
 	stack_a_len = stack_len(*stack_a);
 	if (stack_a_len-- > 3 && !stack_sorted(*stack_a))
-		ft_pb(stack_b, stack_a);
+		ft_push(stack_b, stack_a, 'b');
 	if (stack_a_len-- > 3 && !stack_sorted(*stack_a))
-		ft_pb(stack_b, stack_a);
+		ft_push(stack_b, stack_a, 'b');
 	while (stack_a_len-- > 3 && !stack_sorted(*stack_a))
 	{
 		init_node_a(*stack_a, *stack_b);

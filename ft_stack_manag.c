@@ -59,7 +59,6 @@ void	ft_add_block_front(t_stack **stack, t_stack *block)
 	block->next_node = (*stack);
 	(*stack)->prev_node = block;
 	(*stack) = block;
-	/*ft_readjust_index(stack);*/
 	set_median(*stack);
 }
 
@@ -110,32 +109,13 @@ void	ft_creat_stack(t_stack **stack, char **argv)
 	while (argv[i])
 	{
 		if (ft_syntax_check(argv[i]))
-			ft_error(stack);
+			ft_free_error(stack);
 		n = ft_atoi(argv[i]);
 		if (n > INT_MAX || n < INT_MIN)
-			ft_error(stack);
+			ft_free_error(stack);
 		if (ft_check_dupps((*stack), (int)n))
-			ft_error(stack);
+			ft_free_error(stack);
 		add_node(stack, (int)n);
 		i++;
 	}
 }
-
-/*	t_stack	*new_block;*/
-/*	int		i;*/
-/*	int		index;*/
-/**/
-/*	if (!argv || !(*argv[1]))*/
-/*		return ;*/
-/*	if (ft_syntax_check(argv) == 0)*/
-/*		ft_error();*/
-/*	i = 1;*/
-/*	index = 0;*/
-/*	while (argv[i])*/
-/*	{*/
-/*		new_block = ft_creat_node(ft_atoi(argv[i]), index);*/
-/*		ft_add_block_back(stack, new_block);*/
-/*		i++;*/
-/*		index++;*/
-/*	}*/
-/*}*/

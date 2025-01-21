@@ -30,3 +30,18 @@ void	ft_free_stack(t_stack **stack)
 	}
 	*stack = NULL;
 }
+
+void	ft_free_argv(char **arr_s)
+{
+	int	i;
+
+	i = 0;
+	if (!arr_s)
+		return ;
+	while (arr_s[i])
+	{
+		free(arr_s[i]);
+		i++;
+	}
+	free (arr_s);
+}
