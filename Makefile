@@ -18,15 +18,16 @@ all : $(NAME)
 	$(CC) -c $(FLAGS) $< -o $@
 	ar rcs $(NAME) $@
 
+$(NAME) : $(OFILES)
+	$(CC) $(FLAGS) $(OFILES) -o $(NAME)
+
 clean:
-	rm -rf  $(OFILES) $(BOFILES)
+	rm -rf  $(OFILES)
 
 fclean:	clean
 	rm -rf $(NAME)
 
 re:	fclean all
-
-bonus: $(BOFILES)
 
 .PHONY:	all bonus clean
 
