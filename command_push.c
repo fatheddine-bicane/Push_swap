@@ -21,7 +21,7 @@ void	ft_push(t_stack **stack_dst, t_stack **stack_src, char stack_name)
 	node_to_push = *stack_src;
 	*stack_src = (*stack_src)->next_node;
 	if (*stack_src)
-		(*stack_src)->prev_node= NULL;
+		(*stack_src)->prev_node = NULL;
 	node_to_push->prev_node = NULL;
 	if (!(*stack_dst))
 	{

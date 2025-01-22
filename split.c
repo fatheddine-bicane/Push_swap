@@ -12,21 +12,6 @@
 
 #include "push_swap.h"
 
-/*static void	ft_free(char **arr_s)*/
-/*{*/
-/*	int	i;*/
-/**/
-/*	i = 0;*/
-/*	if (!arr_s)*/
-/*		return ;*/
-/*	while (arr_s[i])*/
-/*	{*/
-/*		free(arr_s[i]);*/
-/*		i++;*/
-/*	}*/
-/*	free (arr_s);*/
-/*}*/
-
 static int	ft_count_words(const char *s, char c)
 {
 	int	i;

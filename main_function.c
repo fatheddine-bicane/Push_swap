@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   main_function.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fbicane <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 18:01:36 by fbicane           #+#    #+#             */
-/*   Updated: 2025/01/15 16:54:21 by fbicane          ###   ########.fr       */
+/*   Updated: 2025/01/22 13:53:37 by fbicane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,12 @@ int	main(int argc, char **argv)
 		ft_free_argv(splited_argv);
 	}
 	ft_creat_stack(&stack_a, argv);
-	if (!stack_sorted(stack_a))
+	if (!ft_stack_sorted(stack_a))
 	{
-		if (stack_len(stack_a) == 2)
+		if (ft_stack_len(stack_a) == 2)
 			ft_swap(&stack_a, 'a');
-		else if (stack_len(stack_a) == 3)
-			sort_for_tree(&stack_a);
+		else if (ft_stack_len(stack_a) == 3)
+			ft_sort_stack_of_3(&stack_a);
 		else
 			ft_sort_stack(&stack_a, &stack_b);
 	}

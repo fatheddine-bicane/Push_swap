@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_free_stack.c                                    :+:      :+:    :+:   */
+/*   free_functions.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fbicane <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 20:05:46 by fbicane           #+#    #+#             */
-/*   Updated: 2025/01/15 14:00:10 by fbicane          ###   ########.fr       */
+/*   Updated: 2025/01/22 12:51:29 by fbicane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,17 +31,24 @@ void	ft_free_stack(t_stack **stack)
 	*stack = NULL;
 }
 
-void	ft_free_argv(char **arr_s)
+void	ft_free_argv(char **argv)
 {
 	int	i;
 
 	i = 0;
-	if (!arr_s)
+	if (!argv)
 		return ;
-	while (arr_s[i])
+	while (argv[i])
 	{
-		free(arr_s[i]);
+		free(argv[i]);
 		i++;
 	}
-	free (arr_s);
+	free (argv);
+}
+
+void	ft_free_error(t_stack **stack)
+{
+	ft_free_stack(stack);
+	write(1, "Error\n", 6);
+	exit(1);
 }

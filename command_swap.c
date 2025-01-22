@@ -6,7 +6,7 @@
 /*   By: fbicane <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 11:03:02 by fbicane           #+#    #+#             */
-/*   Updated: 2025/01/17 11:06:46 by fbicane          ###   ########.fr       */
+/*   Updated: 2025/01/22 13:08:46 by fbicane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	ft_swap(t_stack **stack, char stack_name)
 	tmp_data = first_block->data;
 	first_block->data = second_block->data;
 	second_block->data = tmp_data;
-	ft_readjust_index(stack);
+	ft_set_median_index(*stack);
 	if (stack_name == 'a')
 		write(1, "sa\n", 3);
 	else if (stack_name == 'b')

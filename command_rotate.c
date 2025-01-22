@@ -6,7 +6,7 @@
 /*   By: fbicane <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 11:04:04 by fbicane           #+#    #+#             */
-/*   Updated: 2025/01/17 11:07:04 by fbicane          ###   ########.fr       */
+/*   Updated: 2025/01/22 13:08:11 by fbicane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	ft_rotate(t_stack **stack, char stack_name)
 	stack_ptr2->next_node = stack_ptr1;
 	stack_ptr1->prev_node = stack_ptr2;
 	stack_ptr1->next_node = NULL;
-	ft_readjust_index(stack);
+	ft_set_median_index(*stack);
 	if (stack_name == 'a')
 		write(1, "ra\n", 3);
 	else if (stack_name == 'b')

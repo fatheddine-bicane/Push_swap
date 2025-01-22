@@ -6,13 +6,13 @@
 /*   By: fbicane <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 11:05:07 by fbicane           #+#    #+#             */
-/*   Updated: 2025/01/17 11:06:12 by fbicane          ###   ########.fr       */
+/*   Updated: 2025/01/22 13:40:43 by fbicane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	reverse_rotate(t_stack **stack, char stack_name)
+void	ft_reverse_rotate(t_stack **stack, char stack_name)
 {
 	t_stack	*last;
 	t_stack	*second_last;
@@ -38,12 +38,12 @@ void	reverse_rotate(t_stack **stack, char stack_name)
 		write(1, "rra\n", 4);
 	else if (stack_name == 'b')
 		write(1, "rrb\n", 4);
-	set_median(*stack);
+	ft_set_median_index(*stack);
 }
 
-void	rrr(t_stack **stack_a, t_stack **stack_b)
+void	ft_rrr(t_stack **stack_a, t_stack **stack_b)
 {
-	reverse_rotate(stack_a, NONE);
-	reverse_rotate(stack_b, NONE);
+	ft_reverse_rotate(stack_a, NONE);
+	ft_reverse_rotate(stack_b, NONE);
 	write(1, "rrr\n", 4);
 }

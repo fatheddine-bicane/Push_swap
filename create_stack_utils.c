@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_stack_check.c                                   :+:      :+:    :+:   */
+/*   create_stack_utils.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fbicane <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 14:16:56 by fbicane           #+#    #+#             */
-/*   Updated: 2025/01/17 11:21:42 by fbicane          ###   ########.fr       */
+/*   Updated: 2025/01/22 13:33:54 by fbicane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,22 +39,7 @@ bool	ft_syntax_check(char *argv)
 	return (false);
 }
 
-void	ft_readjust_index(t_stack **stack)
-{
-	t_stack	*stack_ptr;
-	int		index;
-
-	stack_ptr = (*stack);
-	index = 0;
-	while (stack_ptr)
-	{
-		stack_ptr->index = index;
-		index++;
-		stack_ptr = stack_ptr->next_node;
-	}
-}
-
-long	ft_atoi(const char *str)
+long	ft_atol(const char *str)
 {
 	int		i;
 	long	res;
