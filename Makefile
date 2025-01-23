@@ -3,35 +3,76 @@ FLAGS = -Wall -Wextra -Werror
 NAME = push_swap
 BNAME = checker
 HEADER = push_swap.h
-SRCS =	 	command_push.c command_reverse_rotate.c command_rotate.c command_swap.c \
-			create_main_stack.c create_stack_utils.c free_functions.c initialize_a.c \
-			initialize_b.c main_function.c sort_stack.c sort_stack_of_3.c \
-			sorting_utils_1.c sorting_utils_2.c split.c \
 
-BONNUS =	bonus_apply_command.c bonus_get_next_line.c bonus_get_nex_line_utils.c bonus_main.c \
+SRCS =	command_push.c command_reverse_rotate.c command_rotate.c command_swap.c \
+		create_main_stack.c create_stack_utils.c free_functions.c initialize_a.c \
+		initialize_b.c main_function.c sort_stack.c sort_stack_of_3.c \
+		sorting_utils_1.c sorting_utils_2.c split.c
+
+BONUS =	bonus_apply_command.c bonus_get_next_line.c bonus_get_next_line_utils.c bonus_main.c \
+		command_push.c command_reverse_rotate.c command_rotate.c command_swap.c \
+		create_main_stack.c create_stack_utils.c free_functions.c split.c sorting_utils_1.c sorting_utils_2.c \
 
 OFILES = $(SRCS:.c=.o)
-BOFILES = $(BONNUS:.c=.o)
+BOFILES = $(BONUS:.c=.o)
 
-$(NAME) : $(OFILES)
-$(BNAME) : $(BOFILES)
+all: $(NAME)
 
-all : $(NAME)
+%.o: %.c $(HEADER)
+	$(CC) $(FLAGS) -c $< -o $@
 
-%.o: %.c
-	$(CC) -c $(FLAGS) $< -o $@
-	ar rcs $(NAME) $@
-
-$(NAME) : $(OFILES)
+$(NAME): $(OFILES)
 	$(CC) $(FLAGS) $(OFILES) -o $(NAME)
 
+bonus: $(BNAME)
+
+$(BNAME): $(BOFILES)
+	$(CC) $(FLAGS) $(BOFILES) -o $(BNAME)
+
 clean:
-	rm -rf  $(OFILES)
+	rm -f $(OFILES) $(BOFILES)
 
-fclean:	clean
-	rm -rf $(NAME)
+fclean: clean
+	rm -f $(NAME) $(BNAME)
 
-re:	fclean all
+re: fclean all
 
-.PHONY:	all bonus clean
+.PHONY: all bonus clean fclean re
+
+# CC = cc
+# FLAGS = -Wall -Wextra -Werror
+# NAME = push_swap
+# BNAME = checker
+# HEADER = push_swap.h
+# SRCS =	 	command_push.c command_reverse_rotate.c command_rotate.c command_swap.c \
+# 			create_main_stack.c create_stack_utils.c free_functions.c initialize_a.c \
+# 			initialize_b.c main_function.c sort_stack.c sort_stack_of_3.c \
+# 			sorting_utils_1.c sorting_utils_2.c split.c \
+#
+# BONNUS =	bonus_apply_command.c bonus_get_next_line.c bonus_get_nex_line_utils.c bonus_main.c \
+#
+# OFILES = $(SRCS:.c=.o)
+# BOFILES = $(BONNUS:.c=.o)
+#
+# $(NAME) : $(OFILES)
+# $(BNAME) : $(BOFILES)
+#
+# all : $(NAME)
+#
+# %.o: %.c
+# 	$(CC) -c $(FLAGS) $< -o $@
+# 	ar rcs $(NAME) $@
+#
+# $(NAME) : $(OFILES)
+# 	$(CC) $(FLAGS) $(OFILES) -o $(NAME)
+#
+# clean:
+# 	rm -rf  $(OFILES)
+#
+# fclean:	clean
+# 	rm -rf $(NAME)
+#
+# re:	fclean all
+#
+# .PHONY:	all bonus clean
 

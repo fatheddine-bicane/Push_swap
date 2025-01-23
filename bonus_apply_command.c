@@ -6,7 +6,7 @@
 /*   By: fbicane <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 11:33:12 by fbicane           #+#    #+#             */
-/*   Updated: 2025/01/23 12:15:48 by fbicane          ###   ########.fr       */
+/*   Updated: 2025/01/23 12:15:39 by fbicane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,32 @@ static bool	ft_strcmp(const char *s1, const char *s2)
 		return (true);
 	else
 		return (false);
+}
+
+static void	ft_command_helper(t_stack **stack_a, t_stack **stack_b, char operation, char *command)
+{
+	if (operation == 's')
+	{
+		ft_swap(stack_a, NONE);
+		ft_swap(stack_b, NONE);
+	}
+	else if (operation == 'r')
+	{
+		ft_rotate(stack_a, NONE);
+		ft_rotate(stack_b, NONE);
+	}
+	else if (operation == 'R')
+	{
+		ft_reverse_rotate(stack_a, NONE);
+		ft_reverse_rotate(stack_b, NONE);
+	}
+	else if (operation == 'f')
+	{
+		free(command);
+		ft_free_stack(stack_a);
+		ft_free_error(stack_b);
+	}
+
 }
 
 static void	ft_check_command(char *command, t_stack **stack_a, t_stack **stack_b)
