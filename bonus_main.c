@@ -20,7 +20,7 @@ int	main(int argc, char **argv)
 
 	stack_a = NULL;
 	stack_b = NULL;
-		if (argc == 1 || (argc == 2 && !argv[1][0]))
+	if (argc == 1 || (argc == 2 && !argv[1][0]))
 		return (1);
 	splited_argv = ft_split(argv[1], 32);
 	if (argc == 2)

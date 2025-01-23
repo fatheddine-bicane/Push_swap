@@ -40,19 +40,6 @@ typedef struct s_stack
 #  define BUFFER_SIZE 3
 # endif
 
-// the bonus
-void	ft_apply_command(t_stack **stack_a, t_stack **stack_b);
-
-// get_next_line functions
-/*----------------------------------------------------------*/
-void	*ft_memmove(void *dest, const void *src, size_t n);
-char	*ft_strchr(const char *str, int ch);
-char	*ft_strjoin(char *s1, char *s2);
-size_t	ft_strlen(const char *str);
-char	*ft_strdup(const char *s1);
-char	*get_next_line(int fd);
-/*----------------------------------------------------------*/
-
 // create the stack.
 /*-------------------------------------------------------------*/
 long	ft_atol(const char *str);
@@ -103,5 +90,20 @@ void	ft_free_argv(char **argv);
 void	ft_free_stack(t_stack **stack);
 void	ft_free_error(t_stack **stack);
 /*-------------------------------------*/
+
+// the bonus
+/*------------------------------------------------------------------*/
+void	ft_apply_command(t_stack **stack_a, t_stack **stack_b);
+
+// get_next_line functions
+/*----------------------------------------------------------*/
+void	*ft_memmove(void *dest, const void *src, size_t n);
+char	*ft_strchr(const char *str, int ch);
+char	*ft_strjoin(char *s1, char *s2);
+size_t	ft_strlen(const char *str);
+char	*ft_strdup(const char *s1);
+char	*get_next_line(int fd);
+/*----------------------------------------------------------*/
+/*------------------------------------------------------------------*/
 
 #endif

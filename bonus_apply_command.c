@@ -29,7 +29,8 @@ static bool	ft_strcmp(const char *s1, const char *s2)
 		return (false);
 }
 
-static void	ft_command_helper(t_stack **stack_a, t_stack **stack_b, char operation, char *command)
+static void	ft_command_helper(t_stack **stack_a, t_stack **stack_b,
+								char operation, char *command)
 {
 	if (operation == 's')
 	{
@@ -52,10 +53,10 @@ static void	ft_command_helper(t_stack **stack_a, t_stack **stack_b, char operati
 		ft_free_stack(stack_a);
 		ft_free_error(stack_b);
 	}
-
 }
 
-static void	ft_check_command(char *command, t_stack **stack_a, t_stack **stack_b)
+static void	ft_check_command(char *command, t_stack **stack_a,
+							t_stack **stack_b)
 {
 	if (ft_strcmp("sa\n", command))
 		ft_swap(stack_a, NONE);
