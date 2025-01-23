@@ -62,10 +62,7 @@ static void	ft_check_command(char *command, t_stack **stack_a, t_stack **stack_b
 	else if (ft_strcmp("sb\n", command))
 		ft_swap(stack_b, NONE);
 	else if (ft_strcmp("ss\n", command))
-	{
-		ft_swap(stack_a, NONE);
-		ft_swap(stack_b, NONE);
-	}
+		ft_command_helper(stack_a, stack_b, 's', command);
 	else if (ft_strcmp("pa\n", command))
 		ft_push(stack_a, stack_b, NONE);
 	else if (ft_strcmp("pb\n", command))
@@ -75,25 +72,15 @@ static void	ft_check_command(char *command, t_stack **stack_a, t_stack **stack_b
 	else if (ft_strcmp("rb\n", command))
 		ft_rotate(stack_b, NONE);
 	else if (ft_strcmp("rr\n", command))
-	{
-		ft_rotate(stack_a, NONE);
-		ft_rotate(stack_b, NONE);
-	}
+		ft_command_helper(stack_a, stack_b, 'r', command);
 	else if (ft_strcmp("rra\n", command))
 		ft_reverse_rotate(stack_a, NONE);
 	else if (ft_strcmp("rrb\n", command))
 		ft_reverse_rotate(stack_b, NONE);
 	else if (ft_strcmp("rrr\n", command))
-	{
-		ft_reverse_rotate(stack_a, NONE);
-		ft_reverse_rotate(stack_b, NONE);
-	}
+		ft_command_helper(stack_a, stack_b, 'R', command);
 	else
-	{
-		free(command);
-		ft_free_stack(stack_a);
-		ft_free_error(stack_b);
-	}
+		ft_command_helper(stack_a, stack_b, 'f', command);
 }
 
 void	ft_apply_command(t_stack **stack_a, t_stack **stack_b)
