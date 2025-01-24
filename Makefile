@@ -1,5 +1,5 @@
 CC = cc
-FLAGS = -Wall -Wextra -Werror
+FLAGS = -Wall -Wextra -Werror -g
 NAME = push_swap
 BNAME = checker
 HEADER = push_swap.h
@@ -36,5 +36,7 @@ fclean: clean
 	rm -f $(NAME) $(BNAME)
 
 re: fclean all
+
+re_bonus : fclean bonus
 
 .PHONY: all bonus clean fclean re

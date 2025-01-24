@@ -27,4 +27,5 @@ int	main(int argc, char **argv)
 		argv = splited_argv;
 	ft_creat_stack(&stack_a, argv);
 	ft_apply_command(&stack_a, &stack_b);
+	ft_free_argv(splited_argv);
 }
