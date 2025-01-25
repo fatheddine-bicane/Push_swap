@@ -50,7 +50,7 @@ static void	add_node(t_stack **stack, int num)
 	}
 }
 
-void	ft_creat_stack(t_stack **stack, char **argv)
+void	ft_creat_stack(t_stack **stack, char **argv, char **argv_s)
 {
 	long	n;
 	int		i;
@@ -60,7 +60,7 @@ void	ft_creat_stack(t_stack **stack, char **argv)
 	{
 		if (ft_syntax_check(argv[i]))
 		{
-			ft_free_argv(argv);
+			ft_free_argv(argv_s);
 			ft_free_error(stack);
 		}
 		n = ft_atol(argv[i]);
@@ -70,8 +70,8 @@ void	ft_creat_stack(t_stack **stack, char **argv)
 			ft_free_error(stack);
 		}
 		if (ft_check_dupps((*stack), (int)n))
-		{	
-			ft_free_argv(argv);
+		{
+			ft_free_argv(argv_s);
 			ft_free_error(stack);
 		}
 		add_node(stack, (int)n);

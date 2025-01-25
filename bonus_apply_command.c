@@ -50,6 +50,7 @@ static void	ft_command_helper(t_stack **stack_a, t_stack **stack_b,
 	else if (operation == 'f')
 	{
 		free(command);
+		get_next_line(-1);
 		ft_free_stack(stack_a);
 		ft_free_error(stack_b);
 	}
@@ -96,6 +97,7 @@ void	ft_apply_command(t_stack **stack_a, t_stack **stack_b)
 		command = get_next_line(0);
 	}
 	free(command);
+	get_next_line(-1);
 	if ((*stack_b) || !(ft_stack_sorted(*stack_a)))
 	{
 		ft_free_stack(stack_a);

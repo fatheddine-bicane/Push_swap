@@ -25,7 +25,8 @@ int	main(int argc, char **argv)
 	splited_argv = ft_split(argv[1], 32);
 	if (argc == 2)
 		argv = splited_argv;
-	ft_creat_stack(&stack_a, argv);
+	ft_creat_stack(&stack_a, argv, splited_argv);
+	ft_free_argv(splited_argv);
 	if (!ft_stack_sorted(stack_a))
 	{
 		if (ft_stack_len(stack_a) == 2)
@@ -36,5 +37,4 @@ int	main(int argc, char **argv)
 			ft_sort_stack(&stack_a, &stack_b);
 	}
 	ft_free_stack(&stack_a);
-	ft_free_argv(splited_argv);
 }

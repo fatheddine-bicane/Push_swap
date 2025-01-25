@@ -20,12 +20,16 @@ int	main(int argc, char **argv)
 
 	stack_a = NULL;
 	stack_b = NULL;
+	splited_argv = NULL;
 	if (argc == 1 || (argc == 2 && !argv[1][0]))
 		return (1);
-	splited_argv = ft_split(argv[1], 32);
 	if (argc == 2)
+	{
+		splited_argv = ft_split(argv[1], 32);
 		argv = splited_argv;
+	}
 	ft_creat_stack(&stack_a, argv);
+	if (splited_argv)
+		ft_free_argv(splited_argv);
 	ft_apply_command(&stack_a, &stack_b);
-	ft_free_argv(splited_argv);
 }

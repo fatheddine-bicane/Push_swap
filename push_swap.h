@@ -48,7 +48,7 @@ t_stack	*ft_stack_last(t_stack *stack);
 bool	ft_syntax_check(char *argv);
 char	**ft_split(char const *s, char c);
 t_stack	*ft_creat_node(int nbr, int ind);
-void	ft_creat_stack(t_stack **stack, char **argv);
+void	ft_creat_stack(t_stack **stack, char **argv, char **argv_s);
 /*-------------------------------------------------------------*/
 
 // The algorithm that will sort the satck.

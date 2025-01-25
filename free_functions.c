@@ -49,6 +49,6 @@ void	ft_free_argv(char **argv)
 void	ft_free_error(t_stack **stack)
 {
 	ft_free_stack(stack);
-	write(1, "Error\n", 6);
+	write(2, "Error\n", 6);
 	exit(1);
 }
