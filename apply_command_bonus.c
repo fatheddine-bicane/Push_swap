@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   bonus_apply_command.c                              :+:      :+:    :+:   */
+/*   apply_command_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fbicane <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 11:33:12 by fbicane           #+#    #+#             */
-/*   Updated: 2025/01/23 12:15:39 by fbicane          ###   ########.fr       */
+/*   Updated: 2025/01/26 10:35:09 by fbicane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "push_swap_bonus.h"
 
 static bool	ft_strcmp(const char *s1, const char *s2)
 {
