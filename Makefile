@@ -23,7 +23,7 @@ all: $(NAME)
 $(NAME): $(OFILES)
 	$(CC) $(FLAGS) $(OFILES) -o $(NAME)
 
-bonus: $(BNAME)
+checker: $(BNAME)
 
 $(BNAME): $(BOFILES)
 	$(CC) $(FLAGS) $(BOFILES) -o $(BNAME)
